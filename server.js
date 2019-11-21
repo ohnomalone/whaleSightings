@@ -91,7 +91,6 @@ app.get('/api/v1/beaches/sighting_type/:id', (request, response) => {
 
 app.post('/api/v1/whale_sightings', (request, response) => {
   const sighting = request.body
-  console.log(sighting)
   for (let requiredParameter of ['species', 'sighted_at', 'beachId', 'beachName']) {
     if (!sighting[requiredParameter]) {
       return response
@@ -114,4 +113,17 @@ app.post('/api/v1/whale_sightings', (request, response) => {
     .catch(error => {
       response.status(500).json({ error });
     });
+})
+
+app.delete('/api/v1/whale_sightings/:id', (request, response) => {
+    const { id } = request.params;
+    database('whalesightings')
+      .where({ inc_id: id })
+      .del()
+      .then(set => {
+        response.status(201).json({ inc_id: id })
+      })
+      .catch(error => {
+        response.status(422).json({ error })
+      })
 })
