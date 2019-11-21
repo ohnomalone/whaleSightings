@@ -1,8 +1,8 @@
 const beachData = require('../data/sampleBeachData.js');
 
 const createBeach = (knex, beach) => {
-  console.log(beach.LONGITUDE, typeof beach.LONGITUDE)
-  // const {ID, COUNTY, NameMobileWeb, LocationMobileWeb, DescriptionMobileWeb, PHONE_NMBR, FEE, PARKING, DSABLDACSS, RESTROOMS, VISTOR_CTR, DOG_FRIENDLY, EZ4STROLLERS, PCNC_AREA, CAMPGROUND, STRS_BEACH, PTH_BEACH, VOLLEYBALL, FISHING, BOATING, GEOGR_AREA, LATITUDE, LONGITUDE, Photo_1, Photo_2, Photo_3, Photo_4, BIKE_PATH} = beach
+  console.log(beach.VOLLEYBALL);
+  
   return knex('beaches').insert({
     ID: beach.ID,
     COUNTY: beach.COUNTY,
