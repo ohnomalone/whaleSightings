@@ -18,7 +18,13 @@ app.listen(app.get('port'), () => {
 })
 
 app.get('/api/v1/whale_sightings', (request, response) => {
-  const whale_sightings = app.sampleWhaleSightingsData;
+  const whale_sightings = sampleWhaleSightingsData;
 
   response.json({ whale_sightings });
+});
+
+app.get('/api/v1/beaches', (request, response) => {
+  const beaches = sampleBeachData;
+
+  response.json({ beaches });
 });
