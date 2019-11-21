@@ -55,7 +55,6 @@ app.get('/api/v1/beaches/:id', (request, response) => {
 });
 
 app.get('/api/v1/beaches/:id/whale_sightings', (request, response) => {
-  console.log(request)
   database('whalesightings').where('beachId', request.params.id).select()
   .then((whalesightings) => {
     console.log('whalesightings', whalesightings)
@@ -71,3 +70,21 @@ app.get('/api/v1/beaches/:id/whale_sightings', (request, response) => {
     response.status(500).json({ error: "Cannot retreive Whale Wightings Data (I think you’ve confused me with someone who builds a dam)" });
   });
 });
+
+app.get('/api/v1/beaches/sighting_type/:id', (request, response) => {
+  database('beaches')
+    .innerJoin('whalesightings', 'beaches.ID', 'whalesightings.beachId')
+    .where('whalesightings.species', request.params.id)
+    .then( (beachesWithSightings) => {
+      const cleanBeachesWithSightings = beachesWithSightings.reduce( (acc, beach) => {
+        if ( !acc.find( accBeach => beach.ID === accBeach.ID)) {
+          acc.push(beach)
+        }
+        return acc
+      }, [])
+      response.send(cleanBeachesWithSightings)
+    })
+    .catch((error) => {
+      response.status(500).json({ error: `No ${request.params.id} beach sightings data (try again just for the halibut)` });
+    });
+})
