@@ -1,4 +1,4 @@
-const whaleSightings = [
+const whaleSightingsData = [
   [
     {
       "species": "orca",
@@ -78597,4 +78597,4 @@ const whaleSightings = [
   ]
 ]
 
-export default whaleSightings
+export default whaleSightingsData

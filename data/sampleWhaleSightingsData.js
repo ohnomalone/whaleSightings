@@ -1,4 +1,4 @@
-const sampleWhaleSightingsData = [
+const whaleSightingsData = [
   [
     {
       "species": "orca",
@@ -2406,5 +2406,4 @@ const sampleWhaleSightingsData = [
     }
   ]]
 
-
-    module.exports = sampleWhaleSightingsData;
+    module.exports = whaleSightingsData;
