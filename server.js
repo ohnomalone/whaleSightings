@@ -18,9 +18,13 @@ app.listen(app.get('port'), () => {
 })
 
 app.get('/api/v1/whale_sightings', (request, response) => {
-  const whale_sightings = sampleWhaleSightingsData;
-
-  response.json({ whale_sightings });
+  database('whalesightings').select()
+   .then((whalesightings) => {
+     response.status(200).json(whalesightings)
+   })
+   .catch((error) => {
+    response.status(500).json({ error });
+  });
 });
 
 app.get('/api/v1/beaches', (request, response) => {
