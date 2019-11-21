@@ -88,3 +88,30 @@ app.get('/api/v1/beaches/sighting_type/:id', (request, response) => {
       response.status(500).json({ error: `No ${request.params.id} beach sightings data (try again just for the halibut)` });
     });
 })
+
+app.post('/api/v1/whale_sightings', (request, response) => {
+  const sighting = request.body
+  console.log(sighting)
+  for (let requiredParameter of ['species', 'sighted_at', 'beachId', 'beachName']) {
+    if (!sighting[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `Expected format: {
+          species: <String>,
+          quantity: <Number>(optional),
+          sighted_at: <String>,
+          orca_type: <String>(optional),
+          beachId: 1,
+          beachName: <String>
+        }. You're missing a "${requiredParameter}" property.` });
+    }
+  }
+ 
+  database('whalesightings').insert(sighting, 'inc_id')
+    .then(sighting => {
+      response.status(201).json({ id: sighting[0]})
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+})

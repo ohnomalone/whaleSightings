@@ -225,7 +225,7 @@ const whaleSightingsData = [
       "beachName": "Pelican State Beach"
     },
     {
-      "species": "orca",
+      "species": "dolphin",
       "quantity": null,
       "sighted_at": "2016-10-07T23:46:00Z",
       "orca_type": "southern resident",
