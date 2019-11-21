@@ -1,13 +1,29 @@
+const whaleSightingsData = require('../data/sampleWhaleSightingsData.js');
 
-exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
+const createWhaleSighting = (knex, whalesighting) => {
+  console.log(whalesighting);
+  return knex('whalesightings').insert({
+    species: whalesighting.species,
+    quantity: whalesighting.quantity,
+    sighted_at: whalesighting.sighted_at,
+    orca_type: whalesighting.orca_type,
+    beachId: whalesighting.beachId,
+    beachName: whalesighting.beachName
+  }, 'inc_id')
+};
+
+exports.seed = (knex) => {
+  return knex('whalesightings').del() // delete whalesightings first
+    .then(() => {
+      let whalesightingsPromises = [];
+
+      whaleSightingsData.forEach(whalesightings => {
+        whalesightings.forEach( whalesighting => {
+          whalesightingsPromises.push(createWhaleSighting(knex, whalesighting));
+        })
+      });
+
+      return Promise.all(whalesightingsPromises);
+    })
+    .catch(error => console.log(`Error seeding data: ${error}`));
 };

@@ -1,8 +1,6 @@
 const beachData = require('../data/sampleBeachData.js');
 
 const createBeach = (knex, beach) => {
-  console.log(beach.VOLLEYBALL);
-  
   return knex('beaches').insert({
     ID: beach.ID,
     COUNTY: beach.COUNTY,
@@ -34,9 +32,9 @@ const createBeach = (knex, beach) => {
 };
 
 exports.seed = (knex) => {
-  return knex('beaches').del() // delete footnotes first
+  return knex('beaches').del() // delete beaches first
     .then(() => {
-      let beachesPromises = [];
+      let beachesPromises = []; 
 
       beachData.forEach(beach => {
         beachesPromises.push(createBeach(knex, beach));
