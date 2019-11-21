@@ -1,13 +1,24 @@
-const http = require("http");
-const url = require('url');
-const server = http.createServer();
+const express = require('express');
+const app = express();
 
-server.listen(3000, () => {
-  console.log('The HTTP server is listening at Port 3000.');
-});
+const environment = process.env.NODE_ENV || 'development';
+const configuration = require('./knexfile')[environment];
+const database = require('knex')(configuration);
 
-server.on('request', (request, response) => {
-  response.writeHead(200, { 'Content-Type': 'text/plain' });
-  response.write('Hello World, What is up??\n');
-  response.end();
+const sampleWhaleSightingsData = require('./data/sampleWhaleSightingsData.js');
+const sampleBeachData = require('./data/sampleBeachData.js');
+
+console.log('env', environment)
+console.log('config', configuration)
+
+app.set('port', process.env.PORT || 3000);
+
+app.listen(app.get('port'), () => {
+  console.log(`App is running on ${app.get('port')}`)
+})
+
+app.get('/api/v1/whale_sightings', (request, response) => {
+  const whale_sightings = app.sampleWhaleSightingsData;
+
+  response.json({ whale_sightings });
 });

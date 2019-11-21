@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/matthewdshepherd/whaleSightings/issues"
   },
-  "homepage": "https://github.com/matthewdshepherd/whaleSightings#readme"
+  "homepage": "https://github.com/matthewdshepherd/whaleSightings#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
