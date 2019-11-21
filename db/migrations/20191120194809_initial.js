@@ -1,8 +1,7 @@
-
 exports.up = function(knex) {
   return Promise.all([
     knex.schema.createTable('beaches', function(table) {
-      table.increments('id').primary();
+      table.increments('inc_id').primary();
       table.integer('ID');
       table.unique('ID');
       table.string('COUNTY');
@@ -34,9 +33,8 @@ exports.up = function(knex) {
       table.string('BIKE_PATH');
       table.timestamps(true, true);
     }),
-
-    knex.schema.createTable('whaleSightings', function(table) {
-      table.increments('id').primary();
+    knex.schema.createTable('whalesightings', function(table) {
+      table.increments('inc_id').primary();
       table.string('species');
       table.string('quantity');
       table.string('sighted_at');
@@ -44,17 +42,14 @@ exports.up = function(knex) {
       table.string('beachName');
       table.integer('beachId').unsigned()
       table.foreign('beachId')
-       .references('beachId.id');
+       .references('beaches.ID');
       table.timestamps(true, true);
     })
-
   ])
 };
-
 exports.down = function(knex) {
   return Promise.all([
     knex.schema.dropTable('beaches'),
     knex.schema.dropTable('whaleSightings')
   ]);
-
 };
