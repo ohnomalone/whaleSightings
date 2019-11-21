@@ -24,8 +24,6 @@ exports.up = function(knex) {
         table.string('FISHING');
         table.string('BOATING');
         table.string('GEOGR_AREA');
-        table.decimal('LATITUDE', 12, 7);
-        table.decimal('LONGITUDE', 12, 7);
         table.string('Photo_1');
         table.string('Photo_2');
         table.string('Photo_3');

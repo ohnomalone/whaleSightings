@@ -25,8 +25,6 @@ const createBeach = (knex, beach) => {
     FISHING: beach.FISHING,
     BOATING: beach.BOATING,
     GEOGR_AREA: beach.GEOGR_AREA,
-    LATITUDE: beach.LATITUDE,
-    LONGITUDE: beach.LONGITUDE,
     Photo_1: beach.Photo_1,
     Photo_2: beach.Photo_2,
     Photo_3: beach.Photo_3,
