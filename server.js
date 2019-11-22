@@ -18,6 +18,10 @@ app.listen(app.get('port'), () => {
   console.log(`App is running on ${app.get('port')}`)
 })
 
+
+app.get('/', (request, response) => {
+  response.send('BOYB WHALE WATCHERS')
+})
 app.get('/api/v1/whale_sightings', (request, response) => {
   database('whalesightings').select()
    .then((whalesightings) => {
