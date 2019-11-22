@@ -1,4 +1,4 @@
-const whaleSightingsData = require('../data/sampleWhaleSightingsData.js');
+const whaleSightingsData = require('../data/sampleWhaleSightingsData');
 
 const createWhaleSighting = (knex, whalesighting) => {
   console.log(whalesighting);

@@ -78597,4 +78597,4 @@ const whaleSightingsData = [
   ]
 ]
 
-export default whaleSightingsData
+module.exports = whaleSightingsData
