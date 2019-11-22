@@ -6,7 +6,7 @@ module.exports = {
      directory: './db/migrations'
    },
   seeds : {
-    directtory: '/.db/seeds/dev'
+    directory: '/.db/seeds/dev'
   },
   production: {
     client: 'pg',
