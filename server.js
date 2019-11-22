@@ -62,7 +62,7 @@ app.get('/api/v1/beaches/:id/whale_sightings', (request, response) => {
        response.status(200).json(whalesightings)
      } else {
       response.status(404).json({ 
-        error: `Could not get whale sightings with beach id ${request.params.id}, it might be because the sea weed.`
+        error: `Could not get whale sightings with beach id ${request.params.id}, it might be because sea weed.`
       })
     }
   })
@@ -126,4 +126,31 @@ app.delete('/api/v1/whale_sightings/:id', (request, response) => {
       .catch(error => {
         response.status(422).json({ error })
       })
+})
+
+app.post('/api/v1/beaches', (request, response) => {
+  const beach = request.body
+  for (let requiredParameter of ['NameMobileWeb', 'LocationMobileWeb', 'DescriptionMobileWeb', 'PARKING']) {
+    if (!beach[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `Expected format: {
+          "COUNTY": <String>,
+          "NameMobileWeb": <String>,
+          "LocationMobileWeb": <String>,
+          "DescriptionMobileWeb": <String>,
+          "PHONE_NMBR": <String>,
+          "FEE": <String>,
+          "PARKING": <String>,
+        }. You're missing a "${requiredParameter}" property.` });
+    }
+  }
+ 
+  database('beaches').insert(beach, 'inc_id')
+    .then(beach => {
+      response.status(201).json({ id: beach[0]})
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
 })
