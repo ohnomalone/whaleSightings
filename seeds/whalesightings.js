@@ -1,7 +1,6 @@
 const whaleSightingsData = require('../data/sampleWhaleSightingsData');
 
 const createWhaleSighting = (knex, whalesighting) => {
-  console.log(whalesighting);
   return knex('whalesightings').insert({
     species: whalesighting.species,
     quantity: whalesighting.quantity,
