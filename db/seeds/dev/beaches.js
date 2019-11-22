@@ -1,4 +1,4 @@
-const beachData = require('../../data/sampleBeachData.js');
+const beachData = require('../../../data/sampleBeachData.js');
 
 const createBeach = (knex, beach) => {
   return knex('beaches').insert({
