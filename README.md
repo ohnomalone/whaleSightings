@@ -4,7 +4,7 @@
 Many to Many
 Many beaches have many whale sigthings.
 Many Whales have been sighted at many different beaches.
-<img src='./images/BYOB-whalewatchers-schema.png' alt="Whale Watchers Schema Diagram">
+<img src="./images/BYOB-whalewatchers-schema.png" alt="Whale Watchers Schema Diagram">
 
 ## End Points
 #### GET endpoints
