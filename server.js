@@ -28,7 +28,7 @@ app.get('/api/v1/whale_sightings', (request, response) => {
      response.status(200).json(whalesightings)
    })
    .catch((error) => {
-    response.status(500).json({ error: "Cannot retreive Whale Sightings Data (this blows)" });
+    response.status(404).json({ error: "Cannot retreive Whale Sightings Data (this blows)" });
   });
 });
 
@@ -38,7 +38,7 @@ app.get('/api/v1/beaches', (request, response) => {
      response.status(200).json(beaches)
    })
    .catch((error) => {
-    response.status(500).json({ error: "Cannot retreive Beach Data (try again just for the halibut)" });
+    response.status(404).json({ error: "Cannot retreive Beach Data (try again just for the halibut)" });
   });
 });
 
@@ -54,7 +54,7 @@ app.get('/api/v1/beaches/:id', (request, response) => {
     }
   })
    .catch((error) => {
-    response.status(500).json({ error: "Cannot retreive Beach Data (try again just for the halibut)" });
+    response.status(404).json({ error: "Cannot retreive Beach Data (try again just for the halibut)" });
   });
 });
 
@@ -71,7 +71,7 @@ app.get('/api/v1/beaches/:id/whale_sightings', (request, response) => {
     }
   })
    .catch((error) => {
-    response.status(500).json({ error: "Cannot retreive Whale Wightings Data (I think you’ve confused me with someone who builds a dam)" });
+    response.status(404).json({ error: "Cannot retreive Whale Wightings Data (I think you’ve confused me with someone who builds a dam)" });
   });
 });
 
@@ -89,7 +89,7 @@ app.get('/api/v1/beaches/sighting_type/:id', (request, response) => {
       response.send(cleanBeachesWithSightings)
     })
     .catch((error) => {
-      response.status(500).json({ error: `No ${request.params.id} beach sightings data (try again just for the halibut)` });
+      response.status(404).json({ error: `No ${request.params.id} beach sightings data (try again just for the halibut)` });
     });
 })
 
@@ -115,7 +115,7 @@ app.post('/api/v1/whale_sightings', (request, response) => {
       response.status(201).json({ id: sighting[0]})
     })
     .catch(error => {
-      response.status(500).json({ error });
+      response.status(404).json({ error: "Cannot add whale/marine animal sighting to database, are you sure we have a planktonic relationship?" });
     });
 })
 
@@ -128,7 +128,7 @@ app.delete('/api/v1/whale_sightings/:id', (request, response) => {
         response.status(201).json({ inc_id: id })
       })
       .catch(error => {
-        response.status(422).json({ error })
+        response.status(422).json({ error: "Cannot delete whale/marine animal sighting from database, I'd call the Codfather" })
       })
 })
 
@@ -155,6 +155,6 @@ app.post('/api/v1/beaches', (request, response) => {
       response.status(201).json({ id: beach[0]})
     })
     .catch(error => {
-      response.status(500).json({ error });
+      response.status(404).json({ error: "Cannot add beach to the database, looks like it's time to Netflix and krill." });
     });
 })
