@@ -1,8 +1,23 @@
 # MOD 4 BYOB - California Whale Sightings 🐳
 
+By:
+[Matthew Malone](https://github.com/matthewdshepherd)
+
+## [Califronia Whale Watchers Front End API Documentation](https://matthewdshepherd.github.io/whalewatchers/)
+
+## Table of Contents
+* [Schema](#Schema)
+* [End Points](#End-Points)
+* [GET Endpoints](#GET-Points)
+* [POST Endpoints](#POST-Points)
+* [DELETE Endpoints](#DELETE-Points)
+* [API's used](API's-used)
+* [Link to Project Management Board](Link-to-Project-Management-Board)
+
+
 ## Schema
-Many to Many
-Many beaches have many whale sigthings.
+Many to Many<br/>
+Many beaches have many whale sigthings.<br/>
 Many Whales have been sighted at many different beaches.
 <img src="./images/BYOB-whalewatchers-schema.png" alt="Whale Watchers Schema Diagram">
 
@@ -111,7 +126,7 @@ GET path: `/api/v1/beaches/:id`
   error: `Could not get beach with id 22, Can you please be more Pacific?`
 }
 ```
-##### 100 most recent Whale Sightings associated with a specific requested beach by id
+##### 4 100 most recent Whale Sightings associated with a specific requested beach by id
 Path: `/api/v1/beaches/:id/whale_sightings`
 - Sample Response (ok) status: 200
 - Will return an array of 100 whale sight objects
@@ -152,7 +167,7 @@ Path: `/api/v1/beaches/:id/whale_sightings`
 }
 ```
 
-##### 4. Get all beaches where a specific whale/marine animal was spotted
+##### 5. Get all beaches where a specific whale/marine animal was spotted
 GET path: `'/api/v1/beaches/sighting_type/:id'`
 - the id is the specific whale/marine animal
 - Response (ok) status: 200 - will return an array of all beaches where there was a whale/marine animal sighting of the requested type.
@@ -250,3 +265,9 @@ DELETE path:`/api/v1/whale_sightings/:id`
 error: "Cannot delete whale/marine animal sighting from database, I'd call the Codfather" 
 }
 ```
+### API's used:
+[Whale Museum](http://hotline.whalemuseum.org/api)
+[California Costal Commission](https://api.coastal.ca.gov)
+
+## Link to Project Management Board
+[Link to Project Management Board](https://github.com/users/matthewdshepherd/projects/3)
