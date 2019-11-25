@@ -1,7 +1,7 @@
-exports.up = function(knex) {
-    return Promise.all([
-      knex.schema.createTable('beaches', function(table) {
-        table.increments('inc_id').primary();
+exports.up = function(knex) { //  creating table structure that will be used to seed the data
+    return Promise.all([ // return promise of all the tables that are being created
+      knex.schema.createTable('beaches', function(table) { // create a table called beaches with all information that is going to be passed through 
+        table.increments('inc_id').primary(); // create a unique id automatically
         table.integer('ID');
         table.unique('ID');
         table.string('COUNTY');
@@ -31,21 +31,21 @@ exports.up = function(knex) {
         table.string('BIKE_PATH');
         table.timestamps(true, true);
       }),
-      knex.schema.createTable('whalesightings', function(table) {
-        table.increments('inc_id').primary();
+      knex.schema.createTable('whalesightings', function(table) { // create a table called beaches with all information that is going to be passed through 
+        table.increments('inc_id').primary();  // create a unique id automatically
         table.string('species');
         table.string('quantity');
         table.string('sighted_at');
         table.string('orca_type');
         table.string('beachName');
-        table.integer('beachId').unsigned()
-        table.foreign('beachId')
+        table.integer('beachId').unsigned() // create a column that has the associated id from the corrilating beach that is unassigned
+        table.foreign('beachId') // assin that corrilating beach id to the forgien column
          .references('beaches.ID');
         table.timestamps(true, true);
       })
     ])
   };
-  exports.down = function(knex) {
+  exports.down = function(knex) { // when having to go back create what the tables are called
     return Promise.all([
       knex.schema.dropTable('beaches'),
       knex.schema.dropTable('whaleSightings')
