@@ -1,5 +1,20 @@
 # MOD 4 BYOB - California Whale Sightings 🐳
 
+By:
+[Matthew Malone](https://github.com/matthewdshepherd)
+
+## Table of Contents
+* [Misson](#Mission) 
+* [MVP](#MVP)
+* [Walkthrough](#Walkthrough)
+* [Future Iterations](#Future-Iterations)
+* [Features](#Features)
+* [Try It Out](#Try-It-Out)
+* [API's used](API's-used)
+* [Link to Project Management Board](Link-to-Project-Management-Board)
+
+### Mission: 
+
 ## Schema
 Many to Many
 Many beaches have many whale sigthings.
