@@ -1,7 +1,7 @@
-const beachData = require('../../../data/sampleBeachData.js');
+const beachData = require('../../../data/sampleBeachData.js'); //import beachData
 
-const createBeach = (knex, beach) => {
-  return knex('beaches').insert({
+const createBeach = (knex, beach) => { // function to createBeach and insert the data being passed through
+  return knex('beaches').insert({ // insert this newlwey created object into the beaches database
     ID: beach.ID,
     COUNTY: beach.COUNTY,
     NameMobileWeb: beach.NameMobileWeb,
@@ -31,18 +31,18 @@ const createBeach = (knex, beach) => {
   }, 'ID')
 };
 
-exports.seed = (knex) => {
+exports.seed = (knex) => { // 
   return knex('beaches').del() // delete beaches first
-    .then(() => {
-      let beachesPromises = []; 
+    .then(() => { // then do the following
+      let beachesPromises = []; // create an arrary called beachesPromises
 
-      beachData.forEach(beach => {
-        beachesPromises.push(createBeach(knex, beach));
+      beachData.forEach(beach => { // go through all the beachData and with each beach
+        beachesPromises.push(createBeach(knex, beach)); // push in each newly created beach that was run was called through createBeach into the beachesPromises array 
       });
 
-      return Promise.all(beachesPromises);
+      return Promise.all(beachesPromises); // return all the newley created beaches in the promise all so they call resolve
     })
-    .catch(error => console.log(`Error seeding data: ${error}`));
+    .catch(error => console.log(`Error seeding data: ${error}`)); // if this doesn't work send and error
 };
 
 
