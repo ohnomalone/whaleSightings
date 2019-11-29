@@ -2,33 +2,33 @@ exports.up = function(knex) { //  creating table structure that will be used to 
     return Promise.all([ // return promise of all the tables that are being created
       knex.schema.createTable('beaches', function(table) { // create a table called beaches with all information that is going to be passed through 
         table.increments('inc_id').primary(); // create a unique id automatically
-        table.integer('ID');
-        table.unique('ID');
-        table.string('COUNTY');
-        table.string('NameMobileWeb');
-        table.string('LocationMobileWeb');
-        table.string('DescriptionMobileWeb');
-        table.string('PHONE_NMBR');
-        table.string('FEE');
-        table.string('PARKING');
-        table.string('DSABLDACSS');
-        table.string('RESTROOMS');
-        table.string('VISTOR_CTR');
-        table.string('DOG_FRIENDLY');
-        table.string('EZ4STROLLERS');
-        table.string('PCNC_AREA');
-        table.string('CAMPGROUND');
-        table.string('STRS_BEACH');
-        table.string('PTH_BEACH');
-        table.string('VOLLEYBALL');
-        table.string('FISHING');
-        table.string('BOATING');
-        table.string('GEOGR_AREA');
-        table.string('Photo_1');
-        table.string('Photo_2');
-        table.string('Photo_3');
-        table.string('Photo_4');
-        table.string('BIKE_PATH');
+        table.integer('ID'); // create a column for a number
+        table.unique('ID'); // the establised column in the beaches table from the line above with be the unique id that is given by the database 
+        table.string('COUNTY'); // create a column in the beaches table for COUNTY that will be a string
+        table.string('NameMobileWeb'); // create a column in the beaches table for NameMobileWeb that will be a string
+        table.string('LocationMobileWeb'); // create a column in the beaches table for LocationMobileWeb that will be a string
+        table.string('DescriptionMobileWeb'); // create a column in the beaches table for DescriptionMobileWeb that will be a string
+        table.string('PHONE_NMBR'); // create a column in the beaches table for PHONE_NMBR that will be a string
+        table.string('FEE'); // create a column in the beaches table for FEE that will be a string
+        table.string('PARKING'); // create a column in the beaches table for PARKING that will be a string
+        table.string('DSABLDACSS'); // create a column in the beaches table for DSABLDACSS that will be a string
+        table.string('RESTROOMS'); // create a column in the beaches table for RESTROOMS that will be a string
+        table.string('VISTOR_CTR'); // create a column in the beaches table for VISTOR_CTR that will be a string
+        table.string('DOG_FRIENDLY'); // create a column in the beaches table for DOG_FRIENDLY that will be a string
+        table.string('EZ4STROLLERS'); // create a column in the beaches table for EZ4STROLLERS that will be a string
+        table.string('PCNC_AREA'); // create a column in the beaches table for PCNC_AREA that will be a string
+        table.string('CAMPGROUND'); // create a column in the beaches table for CAMPGROUND that will be a string
+        table.string('STRS_BEACH'); // create a column in the beaches table for STRS_BEACH that will be a string
+        table.string('PTH_BEACH'); // create a column in the beaches table for PTH_BEACH that will be a string
+        table.string('VOLLEYBALL'); // create a column in the beaches table for VOLLEYBALL that will be a string
+        table.string('FISHING'); // create a column in the beaches table for FISHING that will be a string
+        table.string('BOATING'); // create a column in the beaches table for BOATING that will be a string
+        table.string('GEOGR_AREA'); // create a column in the beaches table for GEOGR_AREA that will be a string
+        table.string('Photo_1'); // create a column in the beaches table for Photo_1 that will be a string
+        table.string('Photo_2'); // create a column in the beaches table for Photo_2 that will be a string
+        table.string('Photo_3'); // create a column in the beaches table for Photo_3 that will be a string
+        table.string('Photo_4'); // create a column in the beaches table for Photo_4 that will be a string
+        table.string('BIKE_PATH'); // create a column in the beaches table for BIKE_PATH that will be a string
         table.timestamps(true, true);
       }),
       knex.schema.createTable('whalesightings', function(table) { // create a table called beaches with all information that is going to be passed through 
