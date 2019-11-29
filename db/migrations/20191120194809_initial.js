@@ -46,8 +46,8 @@ exports.up = function(knex) { //  creating table structure that will be used to 
     ])
   };
   exports.down = function(knex) { // when having to go back create what the tables are called
-    return Promise.all([
-      knex.schema.dropTable('beaches'),
-      knex.schema.dropTable('whaleSightings')
+    return Promise.all([ // return all resolved promises
+      knex.schema.dropTable('beaches'), // reset beaches dropTable
+      knex.schema.dropTable('whaleSightings') // reset whaleSightings table
     ]);
   };
