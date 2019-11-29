@@ -1,18 +1,18 @@
-const express = require('express');
-const app = express();
+const express = require('express'); // import express 
+const app = express(); // assign the express() to app
 
-const environment = process.env.NODE_ENV || 'development';
-const configuration = require('./knexfile')[environment];
-const database = require('knex')(configuration);
+const environment = process.env.NODE_ENV || 'development'; // assign the environment to either node or developemnt
+const configuration = require('./knexfile')[environment]; // configuration setup requires info from the knexfile and the environment
+const database = require('knex')(configuration); // database is assigned to knex allowing all knex methods to be used without have to write out knex each time it is used
 
 const sampleWhaleSightingsData = require('./data/sampleWhaleSightingsData.js');
 const sampleBeachData = require('./data/sampleBeachData.js');
 
-console.log('env', environment)
-console.log('config', configuration)
+console.log('env', environment) // log the environment from line 4
+console.log('config', configuration) // log the configuration from line 5
 
-app.set('port', process.env.PORT || 3000);
-app.use(express.json())
+app.set('port', process.env.PORT || 3000); // set the port to either be what is used for development or port 3000
+app.use(express.json()) // JSON the information - not sure which information
 
 app.listen(app.get('port'), () => { // get listenr function for when the esrver is running
   console.log(`App is running on ${app.get('port')}`) // log that the app is running on whcih port
