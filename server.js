@@ -97,7 +97,7 @@ app.post('/api/v1/whale_sightings', (request, response) => { // post/add to whal
   const sighting = request.body // reassigning the request body to sighting
   for (let requiredParameter of ['species', 'sighted_at', 'beachId', 'beachName']) { // set required paramters for what needs to be in the request body
     if (!sighting[requiredParameter]) { // check to see if the request body has the required parameters and it it doesn't respond with the following status code and error response
-      return response // if there was a missing parapmater return this response
+      return response // if there was a missing parameter return this response
         .status(422) // return status code 422
         .send({ error: `Expected format: { // return the error in the expected format
           species: <String>, // species is required in a string format
@@ -136,17 +136,17 @@ app.post('/api/v1/beaches', (request, response) => { // post/add to beaches
   const beach = request.body // reassigning the request body to beach
   for (let requiredParameter of ['NameMobileWeb', 'LocationMobileWeb', 'DescriptionMobileWeb', 'PARKING']) { // set required paramters for what needs to be in the request body
     if (!beach[requiredParameter]) { // check to see if the request body has the required parameters and it it doesn't respond with the following status code and error response
-      return response
-        .status(422)
-        .send({ error: `Expected format: {
-          "COUNTY": <String>,
-          "NameMobileWeb": <String>,
-          "LocationMobileWeb": <String>,
-          "DescriptionMobileWeb": <String>,
-          "PHONE_NMBR": <String>,
-          "FEE": <String>,
-          "PARKING": <String>,
-        }. You're missing a "${requiredParameter}" property.` });
+      return response // if there was a missing parameter return this response
+        .status(422) // return status code 422
+        .send({ error: `Expected format: { // return the error in the expected format
+          "COUNTY": <String>, // COUNTY input needs to be in a string format
+          "NameMobileWeb": <String>, // NameMobileWeb input needs to be in a string format
+          "LocationMobileWeb": <String>, // LocationMobileWeb input needs to be in a string format
+          "DescriptionMobileWeb": <String>, // DescriptionMobileWeb input needs to be in a string format
+          "PHONE_NMBR": <String>, // PHONE_NMBR input needs to be in a string format
+          "FEE": <String>, // FEE input needs to be in a string format
+          "PARKING": <String>, // PARKING input needs to be in a string format
+        }. You're missing a "${requiredParameter}" property.` }); // will print out which paramater is missing/incorrect
     }
   }
  
