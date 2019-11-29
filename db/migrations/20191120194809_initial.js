@@ -29,19 +29,19 @@ exports.up = function(knex) { //  creating table structure that will be used to 
         table.string('Photo_3'); // create a column in the beaches table for Photo_3 that will be a string
         table.string('Photo_4'); // create a column in the beaches table for Photo_4 that will be a string
         table.string('BIKE_PATH'); // create a column in the beaches table for BIKE_PATH that will be a string
-        table.timestamps(true, true);
+        table.timestamps(true, true); // create a column in the beaches table for that creates timestamps
       }),
       knex.schema.createTable('whalesightings', function(table) { // create a table called beaches with all information that is going to be passed through 
         table.increments('inc_id').primary();  // create a unique id automatically
-        table.string('species');
-        table.string('quantity');
-        table.string('sighted_at');
-        table.string('orca_type');
-        table.string('beachName');
-        table.integer('beachId').unsigned() // create a column that has the associated id from the corrilating beach that is unassigned
-        table.foreign('beachId') // assin that corrilating beach id to the forgien column
-         .references('beaches.ID');
-        table.timestamps(true, true);
+        table.string('species'); // create a column in the whalesightings table for species that will be a string
+        table.string('quantity');  // create a column in the whalesightings table for quantity that will be a string
+        table.string('sighted_at');  // create a column in the whalesightings table for sighted_at that will be a string
+        table.string('orca_type');  // create a column in the whalesightings table for orca_type that will be a string
+        table.string('beachName');  // create a column in the whalesightings table for beachName that will be a string
+        table.integer('beachId').unsigned() // create a column in the whalesightings table that has the associated id from the corrilating beach that is unassigned
+        table.foreign('beachId') // assign that corrilating beach id to the forgien column
+         .references('beaches.ID'); // use the beaches.ID in this column
+        table.timestamps(true, true); // create a column in the whalesightings table for that creates timestamps
       })
     ])
   };
