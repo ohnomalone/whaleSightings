@@ -14,8 +14,8 @@ console.log('config', configuration)
 app.set('port', process.env.PORT || 3000);
 app.use(express.json())
 
-app.listen(app.get('port'), () => {
-  console.log(`App is running on ${app.get('port')}`)
+app.listen(app.get('port'), () => { // get listenr function for when the esrver is running
+  console.log(`App is running on ${app.get('port')}`) // log that the app is running on whcih port
 })
 
 
@@ -81,11 +81,11 @@ app.get('/api/v1/beaches/sighting_type/:id', (request, response) => { // get req
     .where('whalesightings.species', request.params.id) // with the id that was passed through and in this case it is the type of whale/ marine animal get all the beaches that line up with the previous line
     .then( (beachesWithSightings) => { // then with the data 
       const cleanBeachesWithSightings = beachesWithSightings.reduce( (acc, beach) => { // go through the data and remove all duplicated of the beaches that were returned
-        if ( !acc.find( accBeach => beach.ID === accBeach.ID)) {
-          acc.push(beach)
+        if ( !acc.find( accBeach => beach.ID === accBeach.ID)) { // Logic to check if current beach is in the acc array
+          acc.push(beach) // if the beach is not in the acc array, push it in
         }
-        return acc
-      }, [])
+        return acc // retrun the acc as part of the reduce method
+      }, []) // end of reduce method and sets the initial acc to an empty array
       response.send(cleanBeachesWithSightings) // respond with the beaches where the sightings of that specific whale/ marine animal were spotted
     })
     .catch((error) => { // catch and respond with error message
