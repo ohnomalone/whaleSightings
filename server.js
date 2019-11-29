@@ -97,16 +97,16 @@ app.post('/api/v1/whale_sightings', (request, response) => { // post/add to whal
   const sighting = request.body // reassigning the request body to sighting
   for (let requiredParameter of ['species', 'sighted_at', 'beachId', 'beachName']) { // set required paramters for what needs to be in the request body
     if (!sighting[requiredParameter]) { // check to see if the request body has the required parameters and it it doesn't respond with the following status code and error response
-      return response
-        .status(422)
-        .send({ error: `Expected format: {
-          species: <String>,
-          quantity: <Number>(optional),
-          sighted_at: <String>,
-          orca_type: <String>(optional),
-          beachId: 1,
-          beachName: <String>
-        }. You're missing a "${requiredParameter}" property.` });
+      return response // if there was a missing parapmater return this response
+        .status(422) // return status code 422
+        .send({ error: `Expected format: { // return the error in the expected format
+          species: <String>, // species is required in a string format
+          quantity: <Number>(optional), // quantity is optional, input needs to be in a number format
+          sighted_at: <String>, / species is required in a string format
+          orca_type: <String>(optional), // orca_type is optional, input needs to be in a string format
+          beachId: 1, // beachId is required in a number format
+          beachName: <String> // beachName is required in a string format
+        }. You're missing a "${requiredParameter}" property.` }); // will print out which paramater is missing/incorrect
     }
   }
  
