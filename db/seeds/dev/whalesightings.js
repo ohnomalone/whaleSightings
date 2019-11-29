@@ -2,13 +2,13 @@ const whaleSightingsData = require('../../../data/sampleWhaleSightingsData'); //
 
 const createWhaleSighting = (knex, whalesighting) => { // function to createWhaleSighting and insert the data being passed through
   return knex('whalesightings').insert({ // insert this newlwey created object into the beaches database
-    species: whalesighting.species,
-    quantity: whalesighting.quantity,
-    sighted_at: whalesighting.sighted_at,
-    orca_type: whalesighting.orca_type,
-    beachId: whalesighting.beachId,
-    beachName: whalesighting.beachName
-  }, 'inc_id')
+    species: whalesighting.species, // takes the property from the beach object that was passed through and assigns it to species
+    quantity: whalesighting.quantity, // takes the property from the beach object that was passed through and assigns it to quantity
+    sighted_at: whalesighting.sighted_at, // takes the property from the beach object that was passed through and assigns it to sighted_at
+    orca_type: whalesighting.orca_type, // takes the property from the beach object that was passed through and assigns it to orca_type
+    beachId: whalesighting.beachId, // takes the property from the beach object that was passed through and assigns it to beachId
+    beachName: whalesighting.beachName // takes the property from the beach object that was passed through and assigns it to beachName
+  }, 'inc_id') // 
 };
 
 exports.seed = (knex) => {
