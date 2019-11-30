@@ -19,7 +19,56 @@ By:
 Many to Many<br/>
 Many beaches have many whale sigthings.<br/>
 Many Whales have been sighted at many different beaches.
-<img src="./images/BYOB-whalewatchers-schema.png" alt="Whale Watchers Schema Diagram">
+<img src="./images/byob-schema-short.png" alt="Whale Watchers Schema Diagram">
+<details>
+  <summary>  Beach Info Object Example  </summary>
+
+  ```js
+   {
+    "ID": 36,
+    "COUNTY": "Del Norte",
+    "NameMobileWeb": "Crescent Beach Picnic Area",
+    "LocationMobileWeb": "Enderts Beach Rd., .5 mi. S. of Hwy. 101",
+    "DescriptionMobileWeb": "A scenic overlook is at S. end of Enderts Beach Rd.",
+    "PHONE_NMBR": "",
+    "FEE": "No",
+    "PARKING": "Yes",
+    "DSABLDACSS": "Yes",
+    "RESTROOMS": "Yes",
+    "VISTOR_CTR": "No",
+    "DOG_FRIENDLY": "Yes",
+    "EZ4STROLLERS": "Yes",
+    "PCNC_AREA": "Yes",
+    "CAMPGROUND": "No",
+    "STRS_BEACH": "No",
+    "PTH_BEACH": "Yes",
+    "VOLLEYBALL": "",
+    "FISHING": "Yes",
+    "BOATING": "No",
+    "GEOGR_AREA": "E. Crescent Beach to Lagoon Creek",
+    "Photo_1": "",
+    "Photo_2": "",
+    "Photo_3": "",
+    "Photo_4": "",
+    "BIKE_PATH": "No"
+  }
+  ```
+</details>
+
+<details>
+  <summary>  Whale Sighting Info Object Example  </summary>
+
+  ```js
+   {
+      "species": "harbor porpoise",
+      "quantity": "20",
+      "sighted_at": "2017-10-01T00:38:00Z",
+      "orca_type": "unknown",
+      "beachId": 36,
+      "beachName": "Crescent Beach Picnic Area"
+    }
+  ```
+</details>
 
 ## End Points
 <details>
