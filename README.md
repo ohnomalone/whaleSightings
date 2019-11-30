@@ -8,9 +8,9 @@ By:
 ## Table of Contents
 * [Schema](#Schema)
 * [End Points](#End-Points)
-* [GET Endpoints](#GET-Points)
-* [POST Endpoints](#POST-Points)
-* [DELETE Endpoints](#DELETE-Points)
+* [GET Endpoints](#GET-endpoints)
+* [POST Endpoints](#POST-endpoints)
+* [DELETE Endpoints](#DELETE-endpoint)
 * [API's used](API's-used)
 * [Link to Project Management Board](Link-to-Project-Management-Board)
 
@@ -19,10 +19,61 @@ By:
 Many to Many<br/>
 Many beaches have many whale sigthings.<br/>
 Many Whales have been sighted at many different beaches.
-<img src="./images/BYOB-whalewatchers-schema.png" alt="Whale Watchers Schema Diagram">
+<img src="./images/byob-schema-short.png" alt="Whale Watchers Schema Diagram">
+<details>
+  <summary>  Beach Info Object Example  </summary>
+
+  ```js
+   {
+    "ID": 36,
+    "COUNTY": "Del Norte",
+    "NameMobileWeb": "Crescent Beach Picnic Area",
+    "LocationMobileWeb": "Enderts Beach Rd., .5 mi. S. of Hwy. 101",
+    "DescriptionMobileWeb": "A scenic overlook is at S. end of Enderts Beach Rd.",
+    "PHONE_NMBR": "",
+    "FEE": "No",
+    "PARKING": "Yes",
+    "DSABLDACSS": "Yes",
+    "RESTROOMS": "Yes",
+    "VISTOR_CTR": "No",
+    "DOG_FRIENDLY": "Yes",
+    "EZ4STROLLERS": "Yes",
+    "PCNC_AREA": "Yes",
+    "CAMPGROUND": "No",
+    "STRS_BEACH": "No",
+    "PTH_BEACH": "Yes",
+    "VOLLEYBALL": "",
+    "FISHING": "Yes",
+    "BOATING": "No",
+    "GEOGR_AREA": "E. Crescent Beach to Lagoon Creek",
+    "Photo_1": "",
+    "Photo_2": "",
+    "Photo_3": "",
+    "Photo_4": "",
+    "BIKE_PATH": "No"
+  }
+  ```
+</details>
+
+<details>
+  <summary>  Whale Sighting Info Object Example  </summary>
+
+  ```js
+   {
+      "species": "harbor porpoise",
+      "quantity": "20",
+      "sighted_at": "2017-10-01T00:38:00Z",
+      "orca_type": "unknown",
+      "beachId": 36,
+      "beachName": "Crescent Beach Picnic Area"
+    }
+  ```
+</details>
 
 ## End Points
-#### GET endpoints
+<details>
+  <summary> <code>GET</code> endpoints </summary>
+
 ##### 1. All Beaches 
 GET path:`/api/v1/beaches`
 - Sample Response (ok) status: 200
@@ -171,9 +222,10 @@ Path: `/api/v1/beaches/:id/whale_sightings`
 GET path: `'/api/v1/beaches/sighting_type/:id'`
 - the id is the specific whale/marine animal
 - Response (ok) status: 200 - will return an array of all beaches where there was a whale/marine animal sighting of the requested type.
+</details>
 
-
-#### POST endpoints
+<details>
+  <summary> <code>POST</code> endpoints </summary>
 
 ##### 1. Create Whale/Marine Animal Sighting
 POST path:`/api/v1/whale_sightings`
@@ -249,8 +301,10 @@ Format of POST body:
 error: "Cannot add beach to the database, looks like it's time to Netflix and krill." 
 }
 ```
+</details>
 
-#### DELETE endpoint
+<details>
+  <summary> <code>POST</code> endpoints </summary>
 
 ##### 1. DELETE Whale/Marine Animal Sighting
 DELETE path:`/api/v1/whale_sightings/:id`
@@ -265,6 +319,7 @@ DELETE path:`/api/v1/whale_sightings/:id`
 error: "Cannot delete whale/marine animal sighting from database, I'd call the Codfather" 
 }
 ```
+</details>
 ### API's used:
 [Whale Museum](http://hotline.whalemuseum.org/api)
 [California Costal Commission](https://api.coastal.ca.gov)
