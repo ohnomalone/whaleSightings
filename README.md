@@ -304,7 +304,7 @@ error: "Cannot add beach to the database, looks like it's time to Netflix and kr
 </details>
 
 <details>
-  <summary> <code>POST</code> endpoints </summary>
+  <summary> <code>DELETE</code> endpoints </summary>
 
 ##### 1. DELETE Whale/Marine Animal Sighting
 DELETE path:`/api/v1/whale_sightings/:id`
