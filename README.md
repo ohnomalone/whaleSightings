@@ -8,9 +8,9 @@ By:
 ## Table of Contents
 * [Schema](#Schema)
 * [End Points](#End-Points)
-* [GET Endpoints](#GET-endpoints)
-* [POST Endpoints](#POST-endpoints)
-* [DELETE Endpoints](#DELETE-endpoint)
+* GET Endpoints
+* POST Endpoints
+* DELETE Endpoints
 * [API's used](API's-used)
 * [Link to Project Management Board](Link-to-Project-Management-Board)
 
