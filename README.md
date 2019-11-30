@@ -22,7 +22,9 @@ Many Whales have been sighted at many different beaches.
 <img src="./images/BYOB-whalewatchers-schema.png" alt="Whale Watchers Schema Diagram">
 
 ## End Points
-#### GET endpoints
+<details>
+  <summary> <code>GET</code> endpoints </summary>
+
 ##### 1. All Beaches 
 GET path:`/api/v1/beaches`
 - Sample Response (ok) status: 200
@@ -171,9 +173,10 @@ Path: `/api/v1/beaches/:id/whale_sightings`
 GET path: `'/api/v1/beaches/sighting_type/:id'`
 - the id is the specific whale/marine animal
 - Response (ok) status: 200 - will return an array of all beaches where there was a whale/marine animal sighting of the requested type.
+</details>
 
-
-#### POST endpoints
+<details>
+  <summary> <code>POST</code> endpoints </summary>
 
 ##### 1. Create Whale/Marine Animal Sighting
 POST path:`/api/v1/whale_sightings`
@@ -249,8 +252,10 @@ Format of POST body:
 error: "Cannot add beach to the database, looks like it's time to Netflix and krill." 
 }
 ```
+</details>
 
-#### DELETE endpoint
+<details>
+  <summary> <code>POST</code> endpoints </summary>
 
 ##### 1. DELETE Whale/Marine Animal Sighting
 DELETE path:`/api/v1/whale_sightings/:id`
@@ -265,6 +270,7 @@ DELETE path:`/api/v1/whale_sightings/:id`
 error: "Cannot delete whale/marine animal sighting from database, I'd call the Codfather" 
 }
 ```
+</details>
 ### API's used:
 [Whale Museum](http://hotline.whalemuseum.org/api)
 [California Costal Commission](https://api.coastal.ca.gov)
