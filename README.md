@@ -11,8 +11,8 @@ By:
 * GET Endpoints
 * POST Endpoints
 * DELETE Endpoints
-* [API's used](API's-used)
-* [Project Management Board](Project-Management-Board)
+* [API's used](#API's-used)
+* [Project Management Board](#Project-Management-Board)
 
 
 ## Schema
