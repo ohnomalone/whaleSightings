@@ -12,7 +12,7 @@ By:
 * POST Endpoints
 * DELETE Endpoints
 * [API's used](API's-used)
-* [Link to Project Management Board](Link-to-Project-Management-Board)
+* [Project Management Board](Project-Management-Board)
 
 
 ## Schema
@@ -324,5 +324,5 @@ error: "Cannot delete whale/marine animal sighting from database, I'd call the C
 [Whale Museum](http://hotline.whalemuseum.org/api)
 [California Costal Commission](https://api.coastal.ca.gov)
 
-## Link to Project Management Board
+## Project Management Board
 [Link to Project Management Board](https://github.com/users/matthewdshepherd/projects/3)
