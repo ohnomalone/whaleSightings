@@ -3,7 +3,7 @@
 By:
 [Matthew Malone](https://github.com/matthewdshepherd)
 
-## [Califronia Whale Watchers Front End API Documentation](https://matthewdshepherd.github.io/whalewatchers/)
+## [Califronia Whale Watchers Front End API Documentation](https://ohnomalone.github.io/whalewatchers/)
 
 ## Table of Contents
 * [Schema](#Schema)
