@@ -325,4 +325,4 @@ error: "Cannot delete whale/marine animal sighting from database, I'd call the C
 [California Costal Commission](https://api.coastal.ca.gov)
 
 ## Project Management Board
-[Link to Project Management Board](https://github.com/users/matthewdshepherd/projects/3)
+[Link to Project Management Board](https://github.com/users/ohnomalone/projects/3)
